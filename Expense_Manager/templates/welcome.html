@@ -1,0 +1,45 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} ExpenceTracker {% endblock  %}
+
+{% block body %}
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'expense_tracker/front2.jpeg'%}" alt="Los Angeles" width="100%" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'expense_tracker/front3.jpeg'%}" alt="Chicago" width="100%" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'expense_tracker/front1.jpg'%}" alt="New York" width="100%" height="500">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+
+  <div class = "my-4" style = "mar">
+    <h1> What is Expense Tracker ? </h1>
+    <p> Personal finance management is an important part of people’s lives. However, everyone does not have the knowledge or time to manage their finances in a proper manner. And, even if a person has time and knowledge, they do not bother with tracking their expenses as they find it tedious and time-consuming. Now, you don’t have to worry about managing your expenses, as you can get access to an expense tracker that will help in the active management of your finances.
+    Also known as expense manager and money manager, an expense tracker is a software or application that helps to keep an accurate record of your money inflow and outflow. Many people in India live on a fixed income, and they find that towards the end of the month they don’t have sufficient money to meet their needs. While this problem can arise due to low salary, invariably it is due to poor money management skills.
+
+People tend to overspend without realizing, and this can prove to be disastrous. Using a daily expense manager can help you keep track of how much you spend every day and on what. At the end of the month, you will have a clear picture where your money is going. This is one of the best ways to get your expenses under control and bring some semblance of order to your finances.</p>
+  </div>
+
+{% endblock  %}

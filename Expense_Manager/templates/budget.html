@@ -1,0 +1,156 @@
+{% extends "basic.html" %}
+{% load static %}
+{% block title %} ExpenceTracker {% endblock  %}
+{% block css %}
+.Loginbtn {
+    display : none;
+}
+.Logoutbtn {
+    display : none;
+}
+    table {
+        border-collapse: separate;
+        border-spacing:0;
+        width:100%;
+      }
+  th {
+        border: 1px solid grey;
+
+        text-align: center;
+        padding: 20px;
+  }
+  td{
+      border: 1px solid grey;
+      text-align: center;
+      padding: 10px;
+      background-color:white;
+  }
+
+    *{
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      font-weight: bold;
+    }
+
+    form input[type="text"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .budget-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .budget-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .budget-list li:last-child {
+      border-bottom: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      form input[type="text"], form button {
+        width: 100%;
+      }
+    }
+  {% endblock %}
+  {% block body %}
+  <div class="container" style = "background-color : #80D9FB;  border-bottom-left-radius : 10px; border-bottom-right-radius : 10px;">
+    <h2><strong>Budget Management</strong></h2> 
+    <form action="/expense/budget/" method="post">{% csrf_token %}
+        <div class = "row">
+            <div class = "col-md-6">
+                <label class="form-label" for="phone">Category</label>
+                <select id="cat" class="form-control form-control-lg" name="cat">
+                    <option selected>Select</option>
+                    <option value="Health">Health</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Education">Education</option>
+                    <option value="Books">Books</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class = "col-md-6">
+                <label class="form-label" for="phone">Amount</label>
+                {% comment %} <input type="text" id="phone" name="phone" class="form-control form-control-lg" /> {% endcomment %}
+                <input type="number" id="amount" name="amount" min="0" placeholder="Enter amount" class="form-control form-control-lg" required>
+            </div>
+        </div>
+
+      <button class = "btn btn-success my-3" type="submit" >Add Budget</button>
+    </div>
+    <div class = "container my-3" style = "background-color : #80D9FB; border-top-left-radius : 10px; border-top-right-radius : 10px;">
+    </form>
+                   <div class="contents my-3">
+                <table class="table detail">
+                    <thead class = "thead-dark">
+                        <tr class="h_name">
+                            <th rowspan="2" style="border-radius:5px 0px 0px 0px">#</th>
+                            <th rowspan="2" >Category</th>
+<!--                            <th rowspan="2">Category</th>-->
+<!--                            <th rowspan="2">Date of Expense</th>-->
+                            <th rowspan="2">Amount</th>
+<!--                            <th rowspan="2">Updated At</th>-->
+                            <th rowspan="2" style="border-radius:0px 5px 0px 0px">Date of Expense</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records">
+                        {% for bud in budget  %}
+                            <tr class="items">
+                                <td>{{forloop.counter}}</td>
+                                <td>{{bud.category}}</td>
+                                <td>{{bud.amount}}</td>
+                                <td>{{bud.date}}</td>
+
+
+                            </tr>
+
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+       </div>
+  </div>
+  {% endblock  %}

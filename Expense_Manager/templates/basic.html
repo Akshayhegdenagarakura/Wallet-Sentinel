@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- {%block linkage%} {%endblock%} -->
+    <title>{% block title %} {%endblock%}</title>
+
+    <link {%block link%} {%endblock%}>
+    <style>
+
+.Loginbtn a{
+    border-color : #fff
+  }
+  .Logoutbtn a{
+    border-color : #fff
+  }
+
+  * {
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+  }
+
+  body {
+    {% comment %} background-color: #d2daf2; {% endcomment %}
+    font-family: 'Segoe UI';
+  }
+  nav{
+    box-shadow:2px 6px 8px 0 rgb(0 0 0 / 33%);
+    background-color: #d2daf2;
+    {% comment %} color: white; {% endcomment %}
+  }
+
+    .icons{
+      margin:auto!important;
+
+    }
+
+
+
+    @media only screen and (max-width: 600px) {
+      .card{
+        margin:auto;
+        border:solid 1px #dbdad7;
+        width:90%;
+        padding-left:10px!important;
+        padding-bottom:10px!important;
+        padding-right:10px!important;
+        padding-top: 0px!important;
+
+      }
+    }
+
+      .fa{
+        border-radius: 25px;
+        width: 15%;
+        margin-left: 5%;
+        border:solid 2px #dbdad7;
+        margin-top:5%;
+        text-align: center;
+      }
+
+        /* Footer */
+
+
+
+        .footer {
+      padding: 40px 0;
+      background-color: #007BFF
+
+      ;
+      {% comment %} border-top-left-radius : 10px;
+      border-top-right-radius : 10px; {% endcomment %}
+      /* {% comment %} position : fixed; {% endcomment %} */
+      {% comment %} width : 100vw; {% endcomment %}
+    }
+
+    .footer .social {
+      text-align: center;
+      padding-bottom: 25px;
+      color: #4b4c4d
+    }
+
+    .footer .social a {
+      font-size: 24px;
+      color: white;
+      border: 1px solid #ccc;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 50%;
+      margin: 0 8px;
+      opacity: 0.75;
+    }
+
+    .footer .social a:hover {
+      opacity: 0.9;
+    }
+
+    .footer ul {
+      margin-top: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .footer ul li a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer ul li {
+      display: inline-block;
+      padding: 0 15px;
+    }
+
+    .footer ul li a:hover {
+      opacity: 1;
+    }
+
+    .footer .copyright {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: white;
+    }
+
+    {% block css%} {% endblock %}
+    </style>
+  </head>
+  <body>
+    <div class="container my-3">
+
+    <nav class="navbar navbar-expand-lg bg-primary" style = "border-top-left-radius : 10px; border-top-right-radius : 10px;">
+        <a class="navbar-brand" href="" style="color : whitesmoke;">ExpenseTracker</a>    <!--BRAND NAME-->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" style="color:whitesmoke;" href="/">Home <span class="sr-only" >(current)</span></a>
+                </li>
+
+
+                <!-- {% comment %} <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+                </li> {% endcomment %} -->
+            </ul>
+            <div class = "Loginbtn" >
+              <a href="/expense/login_check" class="btn btn-success" >
+                Login
+              </a>
+              </div>
+
+<!--                <a type="button" style="background-color:#0BDA51;color:white;width:200px;height:45px;margin-right:260px;margin-top:80px;"class="btn float-right " width="120" >Login</a>-->
+<!--                </div>-->
+
+
+
+
+
+    </div>
+    </nav>
+
+ {% block body %} {% endblock  %}
+<!--<script src="https://kit.fontawesome.com/3dbdfeb941.js" crossorigin="anonymous"></script>-->
+
+<footer class="footer" >
+    <div class = "social">
+      <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+      <a href="https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&next=https%3A%2F%2Fwww.facebook.com%2Fcampaign%2Flanding.php%3Fcampaign_id%3D14884913640%26extra_1%3Ds%257Cc%257C589460569849%257Cb%257Cfacebook%2B%2527%257C%26placement%26creative%3D589460569849%26keyword%3Dfacebook%2B%2527%26partner_id%3Dgooglesem%26extra_2%3Dcampaignid%253D14884913640%2526adgroupid%253D128696220912%2526matchtype%253Db%2526network%253Dg%2526source%253Dnotmobile%2526search_or_content%253Ds%2526device%253Dc%2526devicemodel%253D%2526adposition%253D%2526target%253D%2526targetid%253Dkwd-327195741349%2526loc_physical_ms%253D9062077%2526loc_interest_ms%253D%2526feeditemid%253D%2526param1%253D%2526param2%253D%26gclid%3DCjwKCAjw1MajBhAcEiwAagW9MTIzamnmOFFJxOb8-D2FdFaTBH_cVgSNf1i3oy9pCs30Y3fQeRF0CRoCcJYQAvD_BwE&lwv=120&lwc=1348131"><i class="fab fa-facebook"></i> </a>
+      <a href="https://twitter.com/home"><i class="fab fa-twitter"></i> </a>
+      <a href="https://in.linkedin.com/"><i class="fab fa-linkedin"></i> </a>
+    </div>
+
+    <ul class ="list">
+      <li>
+        <a href="">Home</a>
+      </li>
+      <li>
+        <a href="#">Service</a>
+      </li>
+      <li>
+        <a href="">About</a>
+      </li>
+      <li>
+        <a href="#">Terms</a>
+      </li>
+      <li>
+        <a href="#">Privacy Policy</a>
+      </li>
+    </ul>
+    <p class="copyright">
+      ExpenseTracker @ 2023
+    </p>
+  </footer>
+
+{%block js%} {% endblock%}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </div>
+  </body>
+</html>

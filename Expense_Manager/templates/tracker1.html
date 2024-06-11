@@ -1,0 +1,87 @@
+{% extends "Basic.html" %}
+{% load static %}
+{% block title %} ExpenceTracker {% endblock title%}
+{% block link %}{% endblock  %}
+{% block css %}
+.Loginbtn {
+    display : none;
+}
+.Logoutbtn {
+    display : none;
+}
+.Notification {
+    padding : 10px;
+}
+.message {
+    border-radius : 5px;
+    background-color : #B9FEFB;
+    padding-left : 10px;
+    padding-right : 10px;
+}
+.center {
+    display : block;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+{% endblock css %}
+{% block body %}
+
+    <div class = "container">
+        <div class = "row">
+
+            <div class = "col-md-4" style = "background-color : aquamarine; border-bottom-right-radius : 10px; border-bottom-left-radius : 10px; padding : 10px;">
+                <h5 style = "text-align : center;"> Notification </h5>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+            </div>
+            <div class = "col-md-4">
+               <h5 style = "text-align:center;"><a href="/expense/transaction"> Tracker </a></h5>
+               <h5 style = "text-align:center;color:green;"><a href="/expense/budget"> Budget </a></h5>
+             </div>
+            <div class = "col-md-4" style = "background-color: aquamarine; border-bottom-right-radius : 10px; border-bottom-left-radius : 10px; padding : 10px;">
+                <h5 style = "text-align:center; "> Transactions </h5>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Transaction</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color : grey;">
+                    <h7>Message</h7>
+                    <p>description-safsasafsafasffsafasf</p>
+                </div>
+                <div class = "message" style = "background-color:grey;">
+                    <h7>Message</h7>
+                    <p>description -safsasafsafasffsafasf</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{%endblock body%}

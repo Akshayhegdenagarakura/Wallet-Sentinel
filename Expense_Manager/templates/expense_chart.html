@@ -1,0 +1,230 @@
+{% extends "basic.html" %}
+{% load static %}
+{% block title %} ExpenceTracker {% endblock title%}
+{% block link %}{% endblock  %}
+{% block css %}
+    .Loginbtn {
+    display : none;
+    }
+    .Logoutbtn {
+        display : none;
+    }
+    .graph {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .sidebar {
+      border-radius : 10px; 
+      padding : 25px;
+      height: 100% solid;
+      background-Color : #80D9FB;
+    }
+    li {
+      text-align : center;
+    }
+    .chart-container {
+      width: 500px;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+{% endblock  %}
+
+{% block body %} 
+<div style = "background-color : #00DDFF;text-align:center; padding : 10px; border-bottom-left-radius : 10px; border-bottom-right-radius : 10px;"><h2>Expense Tracking Financial Insight</h2></div>
+<div class = "container row my-3" >
+    <div class="sidebar col-md-4">
+      <div class="list-group">
+        <a  onclick = "displayGraph(1)" class="list-group-item list-group-item-action">Bar Chart</a>
+        <a onclick = "displayGraph(2)" class="list-group-item list-group-item-action">Pie Chart</a>
+        <a onclick = "displayGraph(3)" class="list-group-item list-group-item-action">Line Chart</a>
+      </div>
+    </div>
+    <div class="graph col-md-8 my-3"  >
+        <h4 id="bar_title1"></h4>
+        <div class="chart-container">
+          <canvas id="expense_chart"></canvas>
+        </div>
+         <h4 id="bar_title2"></h4>
+        <div class="chart-container">
+          <canvas id="expense_pie_chart"></canvas>
+        </div>
+        <h4 id="bar_title3"></h4>
+        <div class="chart-container">
+          <canvas id="expense_line_chart"></canvas>
+        </div>
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+      </div>
+    
+</div>     
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      
+      function displayGraph(graphType) {
+        
+        console.log(graphType)
+        switch (graphType) {
+          case 1:
+            barchart();
+            break;
+          case 2:
+            piechart();
+            break;
+          case 3:
+            linechart();
+            break;
+          default:
+            break;
+        }
+      }
+    
+      var expenses = [
+        { name: "Health", amount: {{dict_myexp.Health}} },
+        { name: "Electronics", amount: {{dict_myexp.Electronics}} },
+        { name: "Travel", amount: {{dict_myexp.Travel}} },
+        { name: "Education", amount: {{dict_myexp.Education}} },
+        { name: "Others", amount: {{dict_myexp.Others}} }
+      ];
+
+      var expenseNames = expenses.map(expense => expense.name);
+      var expenseAmounts = expenses.map(expense => expense.amount);
+
+      function barchart() {
+        var heading = document.getElementById("bar_title1").innerHTML="Bar Chart"
+        var ctx = document.getElementById("expense_chart").getContext("2d");
+        var expenseChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: expenseNames,
+          datasets: [
+            {
+              label: "Expenses",
+              data: expenseAmounts,
+              backgroundColor: "rgba(54, 162, 235, 0.5)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false
+              }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 200
+              }
+            }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: "Expense Distribution"
+            },
+            legend: {
+              display: false
+            }
+          }
+        }
+      });
+      }
+
+
+      function piechart() {
+        var heading = document.getElementById("bar_title2").innerHTML="Pie Chart"
+        
+        var pieCtx = document.getElementById("expense_pie_chart").getContext("2d");
+      var expensePieChart = new Chart(pieCtx, {
+        type: "pie",
+        data: {
+          labels: expenseNames,
+          datasets: [
+            {
+              label: "Expenses",
+              data: expenseAmounts,
+              backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#4BC0C0",
+                "#9966FF"
+              ]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: "Expense Distribution"
+            },
+            legend: {
+              position: "right"
+            }
+          }
+        }
+      });
+      
+      }
+      function linechart() {
+        var heading = document.getElementById("bar_title3").innerHTML="Line Chart"
+        var lineCtx = document.getElementById("expense_line_chart").getContext("2d");
+      var expenseLineChart = new Chart(lineCtx, {
+        type: "line",
+        data: {
+          labels: expenseNames,
+          datasets: [
+            {
+              label: "Expenses",
+              data: expenseAmounts,
+              fill: false,
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false
+              }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 200
+              }
+            }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: "Expense Trends"
+            },
+            legend: {
+              display: false
+            }
+          }
+        }
+      });
+      }
+    </script>
+{% endblock %}
