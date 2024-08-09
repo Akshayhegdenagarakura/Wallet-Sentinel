@@ -1,4 +1,4 @@
-# Wallet-Sentinal- Expense Tracker
+ # Wallet-Sentinal- Expense Tracker
 
 Wallet-Sentinal is a web-based Expense Tracker application developed using Django, JavaScript, HTML, CSS, and SQLite. It helps users manage their expenses efficiently by providing a user-friendly interface to track income, expenses, and view spending patterns.
 
